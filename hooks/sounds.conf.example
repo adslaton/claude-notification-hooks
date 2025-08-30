@@ -1,0 +1,77 @@
+# Claude Code Audio Notification Configuration
+# This file allows you to customize sound and text-to-speech settings for notifications
+
+# ===== SOUND SETTINGS =====
+
+# Volume setting (0.1 to 1.0, where 1.0 is max volume)
+# Uncomment and set your preferred volume
+# CLAUDE_NOTIFICATION_VOLUME=0.7
+
+# Disable sound notifications (keeps TTS if enabled)
+# CLAUDE_DISABLE_SOUNDS=true
+
+# ===== TEXT-TO-SPEECH SETTINGS =====
+
+# Enable text-to-speech notifications
+# CLAUDE_ENABLE_TTS=true
+
+# TTS Voice (use 'say -v ?' to list available voices)
+# Popular voices: Alex, Samantha, Victoria, Fred, Whisper
+# CLAUDE_TTS_VOICE=Samantha
+
+# TTS Speaking rate (words per minute, default is around 175)
+# Slower: 150, Faster: 250
+# CLAUDE_TTS_RATE=175
+
+# ===== GENERAL SETTINGS =====
+
+# Quiet hours - disable notifications between 10 PM and 8 AM
+# Uncomment to enable quiet hours
+# CLAUDE_QUIET_HOURS=true
+
+# Logging - set to false to disable notification logging
+# CLAUDE_LOG_NOTIFICATIONS=true
+
+# Custom sound mappings
+# Override default sounds by redefining the get_sound function
+# You can use any .aiff, .wav, .mp3, or other audio file supported by afplay
+
+# Example custom sound function:
+# get_sound() {
+#   case "$1" in
+#     completed|write|edit|multiedit)
+#       echo "/path/to/custom/success.aiff"
+#       ;;
+#     error)
+#       echo "/path/to/custom/error.wav"
+#       ;;
+#     alert|notification)
+#       echo "/path/to/custom/alert.aiff"
+#       ;;
+#     bash)
+#       echo "/path/to/custom/command.aiff"
+#       ;;
+#     *)
+#       echo "/System/Library/Sounds/Tink.aiff"
+#       ;;
+#   esac
+# }
+
+# Available system sounds on macOS:
+# /System/Library/Sounds/Basso.aiff      - Deep error sound
+# /System/Library/Sounds/Blow.aiff       - Soft whoosh
+# /System/Library/Sounds/Bottle.aiff     - Pop sound
+# /System/Library/Sounds/Frog.aiff       - Ribbit sound
+# /System/Library/Sounds/Funk.aiff       - Funky beat
+# /System/Library/Sounds/Glass.aiff      - Crystal chime
+# /System/Library/Sounds/Hero.aiff       - Triumphant chord
+# /System/Library/Sounds/Morse.aiff      - Morse code beep
+# /System/Library/Sounds/Ping.aiff       - Classic ping
+# /System/Library/Sounds/Pop.aiff        - Quick pop
+# /System/Library/Sounds/Purr.aiff       - Cat purr
+# /System/Library/Sounds/Sosumi.aiff     - Classic Mac sound
+# /System/Library/Sounds/Submarine.aiff  - Sonar ping
+# /System/Library/Sounds/Tink.aiff       - Light metallic sound
+
+# You can also use custom sound files by providing the full path:
+# SOUNDS[completed]="/Users/yourusername/custom-sounds/success.aiff"

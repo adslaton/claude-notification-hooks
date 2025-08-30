@@ -1,0 +1,84 @@
+{
+  "feedbackSurveyState": {
+    "lastShownTime": 1754004150921
+  },
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/audio-notify.sh write 'File written' Write '$CLAUDE_FILE_PATH'"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/audio-notify.sh edit 'File edited' Edit '$CLAUDE_FILE_PATH'"
+          }
+        ]
+      },
+      {
+        "matcher": "MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/audio-notify.sh multiedit 'Multiple edits completed' MultiEdit '$CLAUDE_FILE_PATH'"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/audio-notify.sh bash 'Command executed' Bash '' '$CLAUDE_COMMAND'"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/audio-notify.sh read 'File read' Read '$CLAUDE_FILE_PATH'"
+          }
+        ]
+      },
+      {
+        "matcher": "Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/audio-notify.sh glob 'Files searched' Glob"
+          }
+        ]
+      },
+      {
+        "matcher": "Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/audio-notify.sh grep 'Content searched' Grep"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/audio-notify.sh alert 'Running command' Bash '' '$CLAUDE_COMMAND'"
+          }
+        ]
+      }
+    ]
+  }
+}
