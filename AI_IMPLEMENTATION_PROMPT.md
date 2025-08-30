@@ -418,6 +418,6 @@ The implementation is successful when:
 
 ## Reference Implementation
 
-For complete reference, see: https://github.com/[username]/claude-notification-hooks
+For complete reference, see: https://github.com/adslaton/claude-notification-hooks
 
 This prompt provides everything needed to implement the Claude Code Notification Hooks system from scratch. Follow the specifications exactly to ensure compatibility and functionality.

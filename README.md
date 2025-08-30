@@ -29,12 +29,12 @@
 ## 🚀 Quick Install
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/[username]/claude-notification-hooks/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/adslaton/claude-notification-hooks/main/install.sh | bash
 ```
 
 Or download and run manually:
 ```bash
-git clone https://github.com/[username]/claude-notification-hooks.git
+git clone https://github.com/adslaton/claude-notification-hooks.git
 cd claude-notification-hooks
 chmod +x install.sh
 ./install.sh
@@ -151,7 +151,7 @@ fi
 ## 🗑️ Uninstall
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/[username]/claude-notification-hooks/main/uninstall.sh | bash
+curl -sSL https://raw.githubusercontent.com/adslaton/claude-notification-hooks/main/uninstall.sh | bash
 ```
 
 Or manually:
@@ -170,8 +170,8 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## 🙋 Support
 
-- **Issues**: [GitHub Issues](https://github.com/[username]/claude-notification-hooks/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/[username]/claude-notification-hooks/discussions)
+- **Issues**: [GitHub Issues](https://github.com/adslaton/claude-notification-hooks/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/adslaton/claude-notification-hooks/discussions)
 
 ---
 

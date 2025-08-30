@@ -5,7 +5,7 @@
 
 set -e
 
-REPO_URL="https://raw.githubusercontent.com/[username]/claude-notification-hooks/main"
+REPO_URL="https://raw.githubusercontent.com/adslaton/claude-notification-hooks/main"
 HOOKS_DIR="$HOME/.claude/hooks"
 SETTINGS_FILE="$HOME/.claude/settings.json"
 BACKUP_DIR="$HOME/.claude/hooks-backup-$(date +%Y%m%d-%H%M%S)"

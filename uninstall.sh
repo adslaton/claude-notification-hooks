@@ -175,7 +175,7 @@ show_completion_message() {
     echo "   - Clear any custom CLAUDE.md references to the notification system"
     echo
     echo -e "${BLUE}🔄 To reinstall later:${NC}"
-    echo '   curl -sSL https://raw.githubusercontent.com/[username]/claude-notification-hooks/main/install.sh | bash'
+    echo '   curl -sSL https://raw.githubusercontent.com/adslaton/claude-notification-hooks/main/install.sh | bash'
     echo
     echo -e "${GREEN}Claude Code notifications have been disabled. 🔇${NC}"
 }
