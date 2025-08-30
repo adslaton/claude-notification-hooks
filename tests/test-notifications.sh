@@ -441,16 +441,60 @@ test_configuration() {
         print_fail "Configuration file cannot be loaded"
     fi
     
-    print_test "Quiet hours functionality"
-    if CLAUDE_QUIET_HOURS=true HOUR=23 "$HOOKS_DIR/audio-notify.sh" write "Quiet test" >/dev/null 2>&1; then
+    print_test "Quiet hours functionality (10 PM)"
+    # Clear log for clean test
+    > "$HOOKS_DIR/notifications.log" 2>/dev/null || true
+    if CLAUDE_QUIET_HOURS=true HOUR=22 "$HOOKS_DIR/audio-notify.sh" write "Quiet test 22h" >/dev/null 2>&1; then
         # Should not create log entry during quiet hours
-        if ! grep -q "Quiet test" "$HOOKS_DIR/notifications.log" 2>/dev/null; then
+        if ! grep -q "Quiet test 22h" "$HOOKS_DIR/notifications.log" 2>/dev/null; then
             print_pass
         else
-            print_fail "Quiet hours not working (notification was logged)"
+            print_fail "Quiet hours not working at 10 PM (notification was logged)"
         fi
     else
         print_fail "Quiet hours test execution failed"
+    fi
+    
+    print_test "Quiet hours functionality (3 AM)"
+    # Clear log for clean test
+    > "$HOOKS_DIR/notifications.log" 2>/dev/null || true
+    if CLAUDE_QUIET_HOURS=true HOUR=3 "$HOOKS_DIR/audio-notify.sh" bash "Quiet test 3h" >/dev/null 2>&1; then
+        # Should not create log entry during quiet hours
+        if ! grep -q "Quiet test 3h" "$HOOKS_DIR/notifications.log" 2>/dev/null; then
+            print_pass
+        else
+            print_fail "Quiet hours not working at 3 AM (notification was logged)"
+        fi
+    else
+        print_fail "Quiet hours test execution failed"
+    fi
+    
+    print_test "Active hours functionality (2 PM)"
+    # Clear log for clean test
+    > "$HOOKS_DIR/notifications.log" 2>/dev/null || true
+    if CLAUDE_QUIET_HOURS=true HOUR=14 "$HOOKS_DIR/audio-notify.sh" edit "Active test 14h" >/dev/null 2>&1; then
+        # Should create log entry during active hours
+        if grep -q "Active test 14h" "$HOOKS_DIR/notifications.log" 2>/dev/null; then
+            print_pass
+        else
+            print_fail "Active hours not working at 2 PM (notification was not logged)"
+        fi
+    else
+        print_fail "Active hours test execution failed"
+    fi
+    
+    print_test "Quiet hours disabled functionality"
+    # Clear log for clean test
+    > "$HOOKS_DIR/notifications.log" 2>/dev/null || true
+    if CLAUDE_QUIET_HOURS=false HOUR=23 "$HOOKS_DIR/audio-notify.sh" read "No quiet test" >/dev/null 2>&1; then
+        # Should create log entry when quiet hours are disabled
+        if grep -q "No quiet test" "$HOOKS_DIR/notifications.log" 2>/dev/null; then
+            print_pass
+        else
+            print_fail "Notifications not working when quiet hours disabled"
+        fi
+    else
+        print_fail "Quiet hours disabled test execution failed"
     fi
     
     print_test "Event type mapping"
