@@ -24,6 +24,7 @@
 | **Content Search** | Morse.aiff | "Claude is searching in file [filename]" | When Claude uses Grep to search content |
 | **Bash Execution** | Pop.aiff | "Claude finished running [command]" | After commands finish |
 | **Pre-Bash Alert** | Ping.aiff | "Claude is about to run [command]" | Before commands start |
+| **Awaiting Input** | Submarine.aiff | "Claude is ready for your input" | When Claude finishes responding |
 | **Errors** | Basso.aiff | "Claude encountered an error with [context]" | When operations fail |
 
 ## 🚀 Quick Install

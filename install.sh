@@ -173,6 +173,27 @@ try:
                     'type': 'command',
                     'command': '~/.claude/hooks/audio-notify.sh bash \"Command executed\" Bash'
                 }]
+            },
+            {
+                'matcher': 'Read',
+                'hooks': [{
+                    'type': 'command',
+                    'command': '~/.claude/hooks/audio-notify.sh read \"File read\" Read'
+                }]
+            },
+            {
+                'matcher': 'Glob',
+                'hooks': [{
+                    'type': 'command',
+                    'command': '~/.claude/hooks/audio-notify.sh glob \"Files searched\" Glob'
+                }]
+            },
+            {
+                'matcher': 'Grep',
+                'hooks': [{
+                    'type': 'command',
+                    'command': '~/.claude/hooks/audio-notify.sh grep \"Content searched\" Grep'
+                }]
             }
         ],
         'PreToolUse': [
@@ -181,6 +202,14 @@ try:
                 'hooks': [{
                     'type': 'command',
                     'command': '~/.claude/hooks/audio-notify.sh alert \"Running command\" Bash'
+                }]
+            }
+        ],
+        'Stop': [
+            {
+                'hooks': [{
+                    'type': 'command',
+                    'command': '~/.claude/hooks/audio-notify.sh awaiting \"Awaiting input\" Stop'
                 }]
             }
         ]
