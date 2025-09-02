@@ -36,6 +36,9 @@ get_sound() {
     bash)
       echo "/System/Library/Sounds/Pop.aiff"
       ;;
+    awaiting|stop)
+      echo "/System/Library/Sounds/Submarine.aiff"
+      ;;
     *)
       echo "/System/Library/Sounds/Tink.aiff"
       ;;
@@ -163,6 +166,9 @@ get_tts_message() {
     notification)
       # Use the provided message for general notifications
       echo "Claude says: $message"
+      ;;
+    awaiting|stop)
+      echo "Claude is ready for your input"
       ;;
     *)
       echo "Claude performed an action"
