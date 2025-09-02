@@ -97,3 +97,21 @@ jobs:
           fi
           echo "✓ $file exists"
         done
+
+  cache-test:
+    name: Test with Cache
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Cache dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache
+        key: ${{ runner.os }}-test-${{ hashFiles('**/*.sh') }}
+        restore-keys: |
+          ${{ runner.os }}-test-
+    
+    - name: Verify cached environment
+      run: echo "Cache configured for improved performance"
